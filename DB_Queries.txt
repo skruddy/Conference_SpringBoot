@@ -1,3 +1,6 @@
+Deployment URL:
+https://conference-demo-skruddy.herokuapp.com/
+
 Create_Table:
 
 CREATE TABLE attendees
