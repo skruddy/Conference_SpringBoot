@@ -1,8 +1,6 @@
 package com.pluralsight.democonferencedemo.controllers;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.logging.Logger;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.pluralsight.democonferencedemo.annotations.ExceptionExpected;
 import com.pluralsight.democonferencedemo.models.Speaker;
 import com.pluralsight.democonferencedemo.repositories.SpeakerRepository;
 
@@ -33,7 +32,9 @@ public class SpeakersController {
 
 	@GetMapping
 	@RequestMapping("{id}")
+	@ExceptionExpected
 	public Speaker get(@PathVariable Long id) {
+		if(id < 1) throw new RuntimeException("Incorrect ID: "+id);
 		return speakerRepository.getOne(id);
 	}
 

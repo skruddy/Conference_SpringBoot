@@ -49,6 +49,7 @@ public class LoggingAspect {
 		// Get intercepted method details
 		String className = methodSignature.getDeclaringType().getSimpleName();
 		String methodName = methodSignature.getName();
+		Object[] methodArgs = proceedingJoinPoint.getArgs();
 
 		final StopWatch stopWatch = new StopWatch();
 
@@ -58,7 +59,7 @@ public class LoggingAspect {
 		stopWatch.stop();
 
 		// Log method execution time
-		logger.info("Execution time of " + className + "." + methodName + " " + ":: " + stopWatch.getTotalTimeMillis()
+		logger.info("Execution time of " + className + "." + methodName + "  with argument: " + methodArgs[0] + " " +":: " + stopWatch.getTotalTimeMillis()
 				+ " ms");
 
 		return result;
