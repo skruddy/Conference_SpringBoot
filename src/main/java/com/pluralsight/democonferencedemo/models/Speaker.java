@@ -1,11 +1,21 @@
 package com.pluralsight.democonferencedemo.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
+
 import org.hibernate.annotations.Type;
 
-import javax.persistence.*;
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import io.micrometer.core.lang.NonNull;
+import io.swagger.annotations.ApiModelProperty;
 
 @Entity(name = "speakers")
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
@@ -14,9 +24,11 @@ public class Speaker {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long speaker_id;
-
+    
+    @NonNull
     private String first_name;
     private String last_name;
+    @ApiModelProperty(value="Designation of the speaker" )
     private String title;
     private String company;
     private String speaker_bio;

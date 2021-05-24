@@ -7,13 +7,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+import io.swagger.annotations.ApiOperation;
 
+@RestController
 public class HomeController {
 	
 	@Value("${app.version}")
 	private String appVersion;
 	
+	@ApiOperation(value = "Get app version", notes  = "Returns the version of the app")
 	@GetMapping
 	@RequestMapping("/")
 	public HashMap<String, String> get() {
