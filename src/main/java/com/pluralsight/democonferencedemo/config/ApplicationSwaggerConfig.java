@@ -1,4 +1,4 @@
-package com.pluralsight.democonferencedem.config;
+package com.pluralsight.democonferencedemo.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
