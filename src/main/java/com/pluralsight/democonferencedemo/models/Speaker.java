@@ -14,7 +14,6 @@ import org.hibernate.annotations.Type;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import io.micrometer.core.lang.NonNull;
 import io.swagger.annotations.ApiModelProperty;
 
 @Entity(name = "speakers")
@@ -25,7 +24,6 @@ public class Speaker {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long speaker_id;
     
-    @NonNull
     private String first_name;
     private String last_name;
     @ApiModelProperty(value="Designation of the speaker" )
